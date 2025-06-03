@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif; /* Ensure Roboto is applied */
+}
+
+main {
+  padding: 16px;
+}
+
+/* Attempt to style md-top-app-bar if it's a custom element */
+md-top-app-bar {
+  --md-sys-color-primary: var(--md-sys-color-surface-container-high); /* Example theming */
+  /* position: fixed; /* This might be needed depending on component behavior */
+  /* width: 100%; */
+  /* z-index: 1000; */
+}
+
+#task-tracker {
+  margin-top: 20px;
+}
+
+md-list-item {
+  border-bottom: 1px solid var(--md-sys-color-outline-variant, #ccc); /* Example divider */
+}
+
+md-list-item:last-child {
+  border-bottom: none;
+}
