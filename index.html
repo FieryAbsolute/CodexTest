@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script type="importmap">
+      {
+        "imports": {
+          "@material/web/": "https://esm.run/@material/web/"
+        }
+      }
+    </script>
+    <script type="module">
+      import '@material/web/all.js';
+      import {styles as typescaleStyles} from '@material/web/typography/md-typescale-styles.js';
+
+      document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
+    </script>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <header>
+      <md-top-app-bar>
+        <md-icon-button icon="menu" slot="navigationIcon"></md-icon-button>
+        <span slot="title">Todo App</span>
+        <md-icon-button icon="search" slot="actionItems"></md-icon-button>
+      </md-top-app-bar>
+    </header>
+
+    <md-navigation-drawer modal id="drawer">
+      <h2 class="md-typescale-title-large" style="margin: 20px;">Menu</h2>
+      <md-list>
+        <md-list-item headline="Tasks">
+          <md-icon slot="start">task</md-icon>
+        </md-list-item>
+        <md-list-item headline="Calendar">
+          <md-icon slot="start">calendar_today</md-icon>
+        </md-list-item>
+      </md-list>
+    </md-navigation-drawer>
+
+    <main style="padding-top: 70px; padding-left: 20px; padding-right: 20px;">
+      <!-- Existing form for testing component rendering -->
+      <h1 class="md-typescale-display-medium">Hello Material!</h1>
+      <form>
+        <p class="md-typescale-body-medium">Check out these controls in a form!</p>
+        <md-checkbox checked></md-checkbox>
+        <div>
+          <md-radio name="group" value="radio1" checked></md-radio> <label for="radio1">Radio 1</label>
+          <md-radio name="group" value="radio2"></md-radio> <label for="radio2">Radio 2</label>
+        </div>
+        <md-outlined-text-field label="Favorite color" value="Purple"></md-outlined-text-field>
+        <md-filled-button type="reset">Reset</md-filled-button>
+      </form>
+      <hr style="margin-top: 20px; margin-bottom: 20px;">
+      <p class="md-typescale-body-large">Main application content will go here.</p>
+
+      <section id="task-tracker">
+        <h2 class="md-typescale-title-large">My Tasks</h2>
+        <form id="new-task-form" style="display: flex; align-items: center; margin-bottom: 20px;">
+          <md-outlined-text-field label="New task" id="new-task-input" style="flex-grow: 1; margin-right: 8px;"></md-outlined-text-field>
+          <md-filled-button type="submit" id="add-task-button">
+            <md-icon slot="icon">add</md-icon>
+            Add
+          </md-filled-button>
+        </form>
+        <md-list id="task-list" aria-label="Task list">
+          <!-- Tasks will be added here by JavaScript -->
+        </md-list>
+      </section>
+    </main>
+
+    <script>
+      const drawer = document.getElementById('drawer');
+      const menuButton = document.querySelector('md-icon-button[icon="menu"]');
+      if (menuButton && drawer) {
+        menuButton.addEventListener('click', () => {
+          drawer.open = !drawer.open;
+        });
+      }
+
+      // Ensure all Material Web Components are loaded
+      // This might already be covered by all.js but specific imports can be safer
+      // For now, relying on all.js from the previous step.
+    </script>
+    <script src="static/js/script.js" defer></script>
+</body>
+</html>
