@@ -1,0 +1,17 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    padding: 16px;
+}
+
+.hidden {
+    display: none;
+}
+
+#calendar {
+    margin-top: 16px;
+}

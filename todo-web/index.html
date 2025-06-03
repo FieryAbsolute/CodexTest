@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@material/web@latest/dist/material-web.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script type="module" src="script.js" defer></script>
+</head>
+<body>
+    <md-top-app-bar headline="Todo"></md-top-app-bar>
+    <main>
+        <section class="login-section">
+            <div id="g_id_onload"
+                 data-client_id="YOUR_GOOGLE_CLIENT_ID"
+                 data-callback="handleCredentialResponse">
+            </div>
+            <div class="g_id_signin" data-type="standard"></div>
+            <div id="user-info" class="hidden">
+                <md-button id="logout-button">Logout</md-button>
+            </div>
+        </section>
+        <section class="task-section hidden">
+            <md-text-field label="New Task" id="new-task-input"></md-text-field>
+            <md-button id="add-task-button">Add Task</md-button>
+            <md-list id="task-list"></md-list>
+        </section>
+        <section class="calendar-section hidden">
+            <div id="calendar"></div>
+        </section>
+    </main>
+</body>
+</html>
