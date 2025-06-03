@@ -1,0 +1,116 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+md-top-app-bar {
+    --md-sys-color-primary: #6200ee;
+    --md-sys-color-on-primary: #ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+main {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+}
+
+section {
+    background-color: #fff;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 600px; /* Max width for sections */
+}
+
+h2 {
+    color: #6200ee;
+    margin-top: 0;
+}
+
+.login-section {
+    text-align: center;
+}
+
+.login-section .g_id_signin {
+    margin-top: 20px;
+    display: inline-block; /* Center the button */
+}
+
+#user-info img {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#user-info md-filled-button {
+    margin-top: 10px;
+}
+
+.task-section md-filled-text-field {
+    width: calc(100% - 120px); /* Adjust width considering the button */
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.task-section md-filled-button {
+    vertical-align: middle;
+}
+
+md-list {
+    margin-top: 20px;
+}
+
+md-list-item {
+    border-bottom: 1px solid #eee;
+}
+
+md-list-item:last-child {
+    border-bottom: none;
+}
+
+/* Basic responsiveness */
+@media (max-width: 768px) {
+    main {
+        padding: 10px;
+    }
+
+    section {
+        margin: 10px 0;
+        padding: 15px;
+    }
+
+    .task-section md-filled-text-field {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .task-section md-filled-button {
+        width: 100%;
+    }
+}
+
+/* FullCalendar custom styles */
+.task-completed {
+    background-color: #d0e0d0 !important; /* Light green background */
+    border-color: #a0c0a0 !important; /* Darker green border */
+    text-decoration: line-through;
+}
+
+/* Ensure calendar container takes up space */
+#calendar-container {
+    min-height: 400px; /* Give calendar some default height */
+    margin-top: 20px;
+} 

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App by Cursor</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@material/web@latest/dist/material-web.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <!-- Updated Material Web Components - Load all components as a module -->
+    <script type="module" src="https://esm.run/@material/web/all.js" async></script>
+    
+    <!-- FullCalendar Scripts (defer is good here) -->
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.17/index.global.min.js' defer></script>
+    <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6.1.17/index.global.min.js' defer></script>
+    <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/interaction@6.1.17/index.global.min.js' defer></script>
+    
+    <!-- Your application script - remove type="module" for now to test file:/// loading -->
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <md-top-app-bar>
+        <div slot="headline">Todo App by Cursor</div>
+    </md-top-app-bar>
+    <main>
+        <section class="user-auth-section">
+            <!-- Shows when user is logged IN -->
+            <div id="user-profile" style="display: none; text-align: center;">
+                <img id="user-picture" src="" alt="User profile picture" style="width: 50px; height: 50px; border-radius: 50%; margin-bottom: 10px;">
+                <p style="margin-top: 0; margin-bottom: 10px;">Welcome, <span id="user-name"></span>!</p>
+                <md-filled-button id="logout-button">Logout</md-filled-button>
+            </div>
+
+            <!-- Shows when user is logged OUT -->
+            <div id="google-signin-container" style="display: block; text-align: center;">
+                 <p>Sign in with Google (optional):</p>
+                 <div id="g_id_onload"
+                     data-client_id="YOUR_GOOGLE_CLIENT_ID"
+                     data-callback="handleCredentialResponse"
+                     data-auto_select="false">
+                </div>
+                <div class="g_id_signin"
+                     data-type="standard"
+                     data-size="large"
+                     data-theme="outline"
+                     data-text="sign_in_with"
+                     data-shape="rectangular"
+                     data-logo_alignment="left">
+                </div>
+            </div>
+        </section>
+
+        <section id="app-content">
+            <section class="task-section">
+                <h2>Tasks</h2>
+                <md-filled-text-field label="New Task" id="new-task-input"></md-filled-text-field>
+                <md-filled-button id="add-task-button">Add Task</md-filled-button>
+                <md-list id="task-list" aria-label="Task list">
+                    <!-- Tasks will be added here by JavaScript -->
+                </md-list>
+            </section>
+
+            <section class="calendar-section">
+                <h2>Calendar</h2>
+                <div id="calendar-container">
+                    <!-- Calendar will be rendered here by script.js -->
+                </div>
+            </section>
+        </section>
+    </main>
+</body>
+</html> 
